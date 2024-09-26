@@ -2,7 +2,7 @@
 """
 Created on Wed Sep 25 18:21:43 2024
 
-@author: Lenovo
+@author: Halcyon
 """
 
 import random
@@ -187,6 +187,13 @@ def startSequence(userChoice):
         return print("Valid entries accepted are: " + str(" ".join(positiveSeq)) + " " + str(" ".join(negativeSeq)) + " " + str(" ".join(kayoSeq)) + " and meow...")
 
 def manyLetters(lettersGuessed):
+    '''
+    lettersGuessed: The lettersGuessed returned from the function(s).
+
+    Returns:
+    True if there are more than 1 letters in lettersGuessed, else, returns False.
+    
+    '''
     letters = 0
     for letter in lettersGuessed: 
         letters += lettersGuessed.count(letter)
@@ -195,6 +202,12 @@ def manyLetters(lettersGuessed):
     else:
         return False  
 def illustrationHanging(deathCount):
+    '''
+    deathCount: How many times a user has failed to guess a letter in Hangman.
+    
+    Returns:
+    A string for the sequence of illustrationHanging based on the deathCount.
+    '''
     if deathCount == 0:
         print("")
         print("Hangman's gallow has been made.")
@@ -261,7 +274,13 @@ def illustrationHanging(deathCount):
         print("Try again.")
         
 def emptyChar(chars):
+    '''
+    chars: An integer that defines how many characters worth of empty spaces to print.
     
+    Returns:
+    Empty character string for 'n' of chars times.
+    
+    '''
     for char in range(int(chars)):
         print("")
 
