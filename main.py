@@ -96,11 +96,6 @@ def chooseWord(wordlist):
     """
     return random.choice(wordlist)
 
-# end of helper code
-# -----------------------------------
-
-# Load the list of words into the variable wordlist
-# so that it can be accessed from anywhere in the program
 wordlist = loadWords()
 
 def isWordGuessed(secretWord, lettersGuessed):
@@ -111,15 +106,12 @@ def isWordGuessed(secretWord, lettersGuessed):
       False otherwise
     '''
     matchingCase = True
-    
     for letter in secretWord:
         if letter not in lettersGuessed:
             matchingCase = False
             return False
     if matchingCase:
         return True
-
-
 
 def getGuessedWord(secretWord, lettersGuessed):
     '''
@@ -128,9 +120,7 @@ def getGuessedWord(secretWord, lettersGuessed):
     returns: string, comprised of letters and underscores that represents
       what letters in secretWord have been guessed so far.
     '''
-    
     guessedWord = []
-    
     for letter in lettersGuessed:
         if letter not in secretWord:
             guessedWord += ""
@@ -160,10 +150,8 @@ def getAvailableLetters(lettersGuessed):
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
     '''
-  
     global alphabet
     internalAlphabet = string.ascii_lowercase
-    
     if manyLetters(lettersGuessed) == False:
         for letter in lettersGuessed:    
             if letter in internalAlphabet: 
@@ -196,7 +184,8 @@ def startSequence(userChoice):
         webbrowser.open("https://youtu.be/PneEoLXIEUI?t=12")
         return None
     else:
-        return print("Your choice was invalid, please try again!")
+        print("Your invalid choice caused Hangman's mind to explode, please try again!")
+        return print("Valid entries accepted are: " + str(" ".join(positiveSeq)) + " " + str(" ".join(negativeSeq)) + " " + str(" ".join(kayoSeq)) + " and meow...")
 
 def manyLetters(lettersGuessed):
     letters = 0
@@ -209,66 +198,66 @@ def manyLetters(lettersGuessed):
 def illustrationHanging(deathCount):
     if deathCount == 0:
         print("")
-        print("Hang man's gallow has been made.")
+        print("Hangman's gallow has been made.")
         print(f"{hangmanASCII[deathCount]}")
         time.sleep(1)
-        print("Hang man still trusts you though. Don't let him down!")
+        print("Hangman still trusts you though. Don't let him down!")
         time.sleep(2)
     elif deathCount ==1:
         print("")
-        print("Hang man's hanging is proceeding.")
+        print("Hangman's hanging is proceeding.")
         time.sleep(1)
         print(hangmanASCII[deathCount])
     elif deathCount ==2:
         print("")
-        print("Hang man's hanging is proceeding.")
+        print("Hangman's hanging is proceeding.")
         time.sleep(1)
         print(hangmanASCII[deathCount])
     elif deathCount ==3:
         print("")
-        print("Hang man's hanging is proceeding.")
+        print("Hangman's hanging is proceeding.")
         time.sleep(1)
-        print("Hang man says he will be hung if you fail four more times.")
+        print("Hangman says he will be hung if you fail four more times.")
         time.sleep(1)
         print("Be careful what you guess next!")
         time.sleep(1.5)
         print(hangmanASCII[deathCount])
     elif deathCount ==4:
         print("")
-        print("Hang man's hanging is proceeding.")
+        print("Hangman's hanging is proceeding.")
         time.sleep(1)
-        print("Hang man says he will be hung if you fail three more times.")
+        print("Hangman says he will be hung if you fail three more times.")
         time.sleep(1)
         print("Be careful what you guess next!")
         time.sleep(1.5)
         print(hangmanASCII[deathCount])
     elif deathCount ==5:
         print("")
-        print("Hang man's hanging is proceeding.")
+        print("Hangman's hanging is proceeding.")
         time.sleep(1)
-        print("Hang man is now scared.")
+        print("Hangman is now scared.")
         time.sleep(1)
-        print("Hang man's trust in you wavers.")
+        print("Hangman's trust in you wavers.")
         time.sleep(1.5)
         print(hangmanASCII[deathCount])
     elif deathCount ==6:
         print("")
-        print("Hang man's life is hanging by a thread!")
+        print("Hangman's life is hanging by a thread!")
         time.sleep(1)
-        print("Hang man screams to bring another defendant.")
+        print("Hangman screams to bring another defendant.")
         time.sleep(1)
-        print("Hang man no longer trusts you.")
+        print("Hangman no longer trusts you.")
         time.sleep(1)
-        print("Hang man will be hun if you fail once more!")
+        print("Hangman will be hung if you fail once more!")
         time.sleep(1.5)
         print(hangmanASCII[deathCount])
     elif deathCount ==7:
         print("")
-        print("Hang man has been hung!")
+        print("Hangman has been hung!")
         time.sleep(1.5)
         print(hangmanASCII[deathCount])
         time.sleep(1)
-        print("Hang man curses at you from the afterlife.")
+        print("Hangman curses at you from the afterlife.")
         time.sleep(1)
         print("Try again.")
         
@@ -277,29 +266,20 @@ def emptyChar(chars):
     for char in range(int(chars)):
         print("")
 
-
-
 def hangman():
     '''
-    secretWord: string, the secret word to guess.
-
-    Starts up an interactive game of Hangman.
-
+    secretWord: string, the secret word to guess
+    Starts up an interactive game of Hangman
     * At the start of the game, let the user know how many 
-      letters the secretWord contains.
-
-    * Ask the user to supply one guess (i.e. letter) per round.
-
+      letters the secretWord contains
+    * Ask the user to supply one guess (i.e. letter) per round
     * The user should receive feedback immediately after each guess 
-      about whether their guess appears in the computers word.
 
     * After each round, you should also display to the user the 
       partially guessed word so far, as well as letters that the 
-      user has not yet guessed.
-
-    Follows the other limitations detailed in the problem write-up.
+      user has not yet guessed
+    Follows the other limitations detailed in the problem write-up
     '''
-    
     score = 0
     hungCount = 0
     lettersGuessed = []
@@ -309,9 +289,9 @@ def hangman():
     print("Guess the letters in a random word."); time.sleep(2)
     print("If your letter is actually a part of the word it is added to the spelling."); time.sleep(2)
     print('If not. Hangman is slowly led towards death.'); time.sleep(2)
-    print("If you guess a wrong letter 8 times hangman is hung"); time.sleep(2)
+    print("If you guess a wrong letter 8 times Hangman is hung"); time.sleep(2)
     print(f' {hangmanASCII[7]}'); time.sleep(1)
-    userChoice = input("If you're ready to play, type in 'start': ").lower()
+    userChoice = input("Are you ready to save Hangman?: ").lower()
     if startSequence(userChoice):
         gamesCount = int(input("How many games would you like to play?: "))
         for game in range(gamesCount):
@@ -360,7 +340,6 @@ def hangman():
                             print("Oops! You've already guessed that letter!")
                             print(str(getGuessedWord(secretWord, alreadyGuessed)))
                             emptyChar(1)
-                           
                         elif lettersGuessed in secretWord:
                             alreadyGuessed += lettersGuessed
                             time.sleep(1)
@@ -368,10 +347,7 @@ def hangman():
                             print("Well done! This fits right in!")
                             emptyChar(2)
                             print(str(getGuessedWord(secretWord, alreadyGuessed)))
-                            emptyChar(2)
-
-                           
-                            
+                            emptyChar(2) 
                         elif lettersGuessed not in secretWord:
                             if lettersGuessed in alreadyGuessed: 
                                 time.sleep(1)
@@ -380,8 +356,6 @@ def hangman():
                                 emptyChar(2) 
                                 print(str(getGuessedWord(secretWord, alreadyGuessed)))
                                 emptyChar(2)
-
-                               
                             else:
                                 alreadyGuessed += lettersGuessed
                                 time.sleep(1)
@@ -392,25 +366,17 @@ def hangman():
                                 userGuesses -= 1
                                 illustrationHanging(deathCount)
                                 deathCount += 1
-
                         else:
                             return print("There has been an error somewhere, please try again!")
                         # elif getGuessedWord(secretWord, lettersGuessed) == False:
                         #     print("meow")
                     elif manyLetters(lettersGuessed) == True:
                         print("Please type one letter at a time, or the full guess!")
-    
-    
-    if startSequence(userChoice) == False: 
+    else: 
         time.sleep(3)
         print("That's unfortunate..."); time.sleep(3)
         print("Feel free to re-run the code whenever you want to start and enter 'start' on prompt!"); time.sleep(3)
-
 # When you've completed your hangman function, uncomment these two lines
 # and run this file to test! (hint: you might want to pick your own
 # secretWord while you're testing)
-
 hangman()
-            
-
-  
