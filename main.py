@@ -392,16 +392,21 @@ def hangman():
                                 deathCount += 1
                         else:
                             return print("There has been an error somewhere, please try again!")
-                        # elif getGuessedWord(secretWord, lettersGuessed) == False:
-                        #     print("meow")
                     elif manyLetters(lettersGuessed) == True:
-                        print("Please type one letter at a time, or the full guess!")
+                        if "".join(lettersGuessed) == secretWord:
+                            score+=1
+                            time.sleep(1)
+                            emptyChar(1)
+                            print("Congratulations, you won!")
+                            emptyChar(1)
+                            print("The word was: " + str(secretWord))
+                            emptyChar(2)
+
+                        else:    
+                            print("Please type one letter at a time, or the full guess!")
     else: 
         time.sleep(3)
         print("That's unfortunate..."); time.sleep(3)
         print("Feel free to re-run the code whenever you want to start and enter 'start' on prompt!"); time.sleep(3)
-# When you've completed your hangman function, uncomment these two lines
-# and run this file to test! (hint: you might want to pick your own
-# secretWord while you're testing)
 alphabet = string.ascii_lowercase
 hangman()
