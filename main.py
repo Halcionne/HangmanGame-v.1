@@ -146,8 +146,6 @@ def getGuessedWord(secretWord, lettersGuessed):
     lettersGuessed = guessedWord    
     return " ".join(lettersGuessed)
 
-alphabet = string.ascii_lowercase
-
 def getAvailableLetters(lettersGuessed):
     '''
     lettersGuessed: list, what letters have been guessed so far
@@ -305,8 +303,7 @@ def hangman():
     '''
     score = 0
     hungCount = 0
-    lettersGuessed = []
-    alreadyGuessed = []
+    
     time.sleep(1)
     print("Welcome to the game, Hangman!"); time.sleep(2)
     print("Guess the letters in a random word."); time.sleep(2)
@@ -318,6 +315,9 @@ def hangman():
     if startSequence(userChoice):
         gamesCount = int(input("How many games would you like to play?: "))
         for game in range(gamesCount):
+            alphabet = string.ascii_lowercase
+            lettersGuessed = []
+            alreadyGuessed = []
             deathCount = 0
             userGuesses = 8
             isHung = False
