@@ -69,7 +69,12 @@ hangmanASCII = ['''
       |
 =========''']
 
-WORDLIST_FILENAME = "C:/Users/Lenovo/.spyder-py3/Python Scripts/Hangman game/words.txt"
+'''
+Change wordlist_filename to you words.txt directory
+
+'''
+
+WORDLIST_FILENAME = "words.txt"
 
 def loadWords():
     """
