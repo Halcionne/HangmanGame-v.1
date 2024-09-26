@@ -130,7 +130,6 @@ def getGuessedWord(secretWord, lettersGuessed):
                     guessedWord.append(letter)
             else:
                 guessedWord.append(letter)
-    
     guessedLetters = guessedWord
     if guessedWord != secretWord:
         guessedWord = []
