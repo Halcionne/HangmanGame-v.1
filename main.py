@@ -315,6 +315,7 @@ def hangman():
     if startSequence(userChoice):
         gamesCount = int(input("How many games would you like to play?: "))
         for game in range(gamesCount):
+            global alphabet
             alphabet = string.ascii_lowercase
             lettersGuessed = []
             alreadyGuessed = []
@@ -402,4 +403,5 @@ def hangman():
 # When you've completed your hangman function, uncomment these two lines
 # and run this file to test! (hint: you might want to pick your own
 # secretWord while you're testing)
+alphabet = string.ascii_lowercase
 hangman()
